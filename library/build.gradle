@@ -1,8 +1,5 @@
-import jdk.jshell.Eval
-import jdk.jshell.Unit
-
 plugins {
-	id 'org.springframework.boot' version '3.2.2' apply false
+	id 'org.springframework.boot' version '2.7.18' apply false
 	id 'io.spring.dependency-management' version '1.1.4'
 	id 'java'
 }
@@ -28,6 +25,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+//tasks.wrapper {
+//	gradleVersion = "9.0"
+//	// You can either download the binary-only version of Gradle (BIN) or
+//	// the full version (with sources and documentation) of Gradle (ALL)
+//	distributionType = Wrapper.DistributionType.ALL
+//}
 
 tasks.withType(JavaCompile).configureEach {
 	println "Module Library. On JavaCompile. Executing TASK: " + it.name
