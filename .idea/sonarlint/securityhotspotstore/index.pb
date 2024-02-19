@@ -32,3 +32,5 @@ Dlibrary/src/main/java/com/example/multimodule/service/MyService.java,a/1/a13e5
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+N
+.idea/modules/multi-module.iml,c/6/c6ed0d49e012a5f920ce91f6bee8b5e9c8e8f26b
