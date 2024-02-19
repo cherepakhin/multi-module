@@ -14,13 +14,14 @@ Module Library. On Test. Executing TASK: test
 
 Сначала все модули компилируются (On JavaCompile) в след. порядке:
 
-__Module Application__
-main
-test	 
-__Module Library__
-main
-test
-
-Затем выполняются тесты (On Test).
-__Module Application__
-__Module Library__
+__Module Application__<br/>
+main<br/>
+test<br/>
+<br/>
+__Module Library__<br/>
+main<br/>
+test<br/>
+<br/>
+Затем выполняются тесты (On Test).<br/>
+__Module Application__<br/>
+__Module Library__<br/>
