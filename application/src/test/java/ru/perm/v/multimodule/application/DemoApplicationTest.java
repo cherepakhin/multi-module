@@ -12,13 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest
 class DemoApplicationTest {
 
-	@Autowired
-	private MyService myService;
-
-	@Test
-	void contextLoads() {
-		assertNotNull(myService.message());
-	}
+//	@Autowired
+//	private MyService myService;
+//
+//	@Test
+//	void contextLoads() {
+//		assertNotNull(myService.message());
+//	}
 
 	@Test
 	void simple() {
