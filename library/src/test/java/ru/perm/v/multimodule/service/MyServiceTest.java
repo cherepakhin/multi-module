@@ -9,5 +9,4 @@ class MyServiceTest {
     void simpleTest() {
         assertEquals(1, 1);
     }
-
 }

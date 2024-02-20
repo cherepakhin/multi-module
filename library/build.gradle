@@ -10,6 +10,13 @@ version = '0.0.1'
 
 java {
 	sourceCompatibility = '11'
+	withJavadocJar()
+	withSourcesJar()
+}
+
+jar {
+	enabled = true
+	archiveClassifier = '' //change PLAIN to empty string
 }
 
 repositories {
@@ -61,9 +68,13 @@ publishing {
 	publications {
 		mavenJava(MavenPublication) {
 			from components.java
-			pom {
-				name = 'Multi Module Application'
-				description = 'My Description Multi Module Application'
+			versionMapping {
+				usage('java-api') {
+					fromResolutionOf('runtimeClasspath')
+				}
+				usage('java-runtime') {
+					fromResolutionResult()
+				}
 			}
 		}
 	}
