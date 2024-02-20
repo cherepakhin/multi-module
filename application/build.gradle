@@ -22,6 +22,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+test {
+	useJUnitPlatform()
+}
+
 //tasks.wrapper {
 //	gradleVersion = "8.0"
 //	// You can either download the binary-only version of Gradle (BIN) or
