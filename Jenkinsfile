@@ -8,19 +8,13 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                sh 'rm -rf multi_module; git clone https://github.com/cherepakhin/multi_module'
+                sh 'rm -rf multi-module; git clone https://github.com/cherepakhin/multi-module'
             }
         }
 
         stage('Unit tests') {
             steps {
-                sh 'pwd;cd multi_module;./gradlew clean test --tests *Test'
-            }
-        }
-
-        stage('Build bootJar') {
-            steps {
-                sh 'pwd;cd multi_module;./gradlew bootJar'
+                sh 'pwd;cd multi-module;./gradlew clean test --tests *Test'
             }
         }
 
@@ -29,7 +23,7 @@ pipeline {
                 NEXUS_CRED = credentials('nexus_admin')
             }
             steps {
-                sh 'cd multi_module;ls;./gradlew publish'
+                sh 'pwd;ls;cd multi-module;./gradlew publish'
             }
         }
     }
