@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'ru.perm.v.multi-module'
-version = '0.0.3'
+version = '0.0.4'
 
 java {
 	sourceCompatibility = '11'
@@ -74,6 +74,33 @@ publishing {
 				}
 				usage('java-runtime') {
 					fromResolutionResult()
+				}
+			}
+			pom {
+				name = 'Library for Multi Module Project'
+				description = 'Description for Multi Module Project'
+				url = 'https://github.com/cherepakhin/multi-module'
+				properties = [
+						myProp: "value",
+						"prop.with.dots": "anotherValue"
+				]
+				licenses {
+					license {
+						name = 'The Apache License, Version 2.0'
+						url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+					}
+				}
+				developers {
+					developer {
+						id = 'vasi.che'
+						name = 'Vasili Cherepakhin'
+						email = 'vasi.che@gmail.com'
+					}
+				}
+				scm {
+					connection = 'scm:git:git://github.com/cherepakhin/multi-module.git'
+					developerConnection = 'scm:git:ssh://github.com/cherepakhin/multi-module.git'
+					url = 'https://github.com/cherepakhin/multi-module'
 				}
 			}
 		}
