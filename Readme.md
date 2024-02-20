@@ -40,3 +40,7 @@ Module __Library__
     <li>Test Module Application</li>
     <li>Test Module Library</li>
 </ul>
+
+### Сборка Jenkins
+
+![jenkins_build.png](doc/jenkins_build.png)
