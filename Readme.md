@@ -44,3 +44,55 @@ Module __Library__
 ### Сборка Jenkins
 
 ![jenkins_build.png](doc/jenkins_build.png)
+
+### Описание артефакта maven
+
+
+````shell
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+			versionMapping {
+				usage('java-api') {
+					fromResolutionOf('runtimeClasspath')
+				}
+				usage('java-runtime') {
+					fromResolutionResult()
+				}
+			}
+			pom {
+				name = 'Library for Multi Module Project'
+				description = 'Description for Multi Module Project'
+				url = 'https://github.com/cherepakhin/multi-module'
+				properties = [
+						myProp: "value",
+						"prop.with.dots": "anotherValue"
+				]
+				licenses {
+					license {
+						name = 'The Apache License, Version 2.0'
+						url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+					}
+				}
+				developers {
+					developer {
+						id = 'vasi.che'
+						name = 'Vasili Cherepakhin'
+						email = 'vasi.che@gmail.com'
+					}
+				}
+				scm {
+					connection = 'scm:git:git://github.com/cherepakhin/multi-module.git'
+					developerConnection = 'scm:git:ssh://github.com/cherepakhin/multi-module.git'
+					url = 'https://github.com/cherepakhin/multi-module'
+				}
+			}
+		}
+	}
+
+````
+
+В Nexus в файле library-0.0.4.pom будут указаны эти данные:
+
+![pom-description.png](doc/pom-description.png)
