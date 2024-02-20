@@ -2,10 +2,11 @@ plugins {
 	id 'org.springframework.boot' version '2.7.18'
 	id 'io.spring.dependency-management' version '1.1.4'
 	id 'java'
+	id 'maven-publish'
 }
 
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+group = 'ru.perm.v.multi-module'
+version = '0.0.1'
 
 java {
 	sourceCompatibility = '11'
@@ -13,12 +14,22 @@ java {
 
 repositories {
 	mavenCentral()
+	mavenLocal()
+	maven {
+		url = "http://v.perm.ru:8082/repository/ru.perm.v"
+		allowInsecureProtocol = true
+		credentials {
+			username = "admin"
+			password = "pass"
+		}
+	}
 }
 
 dependencies {
+	implementation 'org.springframework.boot:spring-boot:2.5.6'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation project(':library')
+	implementation 'ru.perm.v.multi-module:library:0.0.1'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
@@ -45,23 +56,24 @@ tasks.withType(Test).configureEach {
 	println "----------------"
 }
 
-tasks.withType(Publication).configureEach {
-	repositories {
-		maven {
-			url = uri("http://v.perm.ru:8082/repository/ru.perm.v/")
-			isAllowInsecureProtocol = true
-			//  publish в nexus "./gradlew publish" из ноута и Jenkins проходит
-			// export NEXUS_CRED_USR=admin
-			// echo $NEXUS_CRED_USR
-			credentials {
-				username = System.getenv("NEXUS_CRED_USR")
-				password = System.getenv("NEXUS_CRED_PSW")
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+			pom {
+				name = 'Multi Module Library'
+				description = 'My Description Multi Module Library'
 			}
 		}
 	}
-	publications {
-		create("maven") {
-			artifact(tasks["bootJar"])
+	repositories {
+		maven {
+			url = 'http://v.perm.ru:8082/repository/ru.perm.v/'
+			allowInsecureProtocol = true
+			credentials {
+				username = 'admin'
+				password = 'pass'
+			}
 		}
 	}
 }
