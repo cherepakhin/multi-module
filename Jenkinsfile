@@ -29,7 +29,7 @@ pipeline {
                 NEXUS_CRED = credentials('nexus_admin')
             }
             steps {
-                sh 'cd multi_module;./gradlew publish'
+                sh 'cd multi_module;ls;./gradlew publish'
             }
         }
     }
