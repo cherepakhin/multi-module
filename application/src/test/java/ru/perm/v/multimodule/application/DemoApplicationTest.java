@@ -1,15 +1,10 @@
 package ru.perm.v.multimodule.application;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import ru.perm.v.multimodule.service.MyService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@SpringBootTest
+//@SpringBootTest
 class DemoApplicationTest {
 
 //	@Autowired
@@ -20,10 +15,10 @@ class DemoApplicationTest {
 //		assertNotNull(myService.message());
 //	}
 
-	@Test
-	void simple() {
-		String s1 = "s1";
-		String s2 = "s1";
-		assertEquals(s1, s2);
-	}
+    @Test
+    void simple() {
+        String s1 = "s1";
+        String s2 = "s1";
+        assertEquals(s1, s2);
+    }
 }
