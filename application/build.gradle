@@ -26,11 +26,13 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot:2.5.6'
+	implementation 'org.springframework.boot:spring-boot-autoconfigure'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'ru.perm.v.multi-module:library:0.0.1'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
 test {
