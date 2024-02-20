@@ -44,3 +44,24 @@ tasks.withType(Test).configureEach {
 //	println "Module Application. Java version:" + System.getProperty("java.version")
 	println "----------------"
 }
+
+tasks.withType(Publication).configureEach {
+	repositories {
+		maven {
+			url = uri("http://v.perm.ru:8082/repository/ru.perm.v/")
+			isAllowInsecureProtocol = true
+			//  publish в nexus "./gradlew publish" из ноута и Jenkins проходит
+			// export NEXUS_CRED_USR=admin
+			// echo $NEXUS_CRED_USR
+			credentials {
+				username = System.getenv("NEXUS_CRED_USR")
+				password = System.getenv("NEXUS_CRED_PSW")
+			}
+		}
+	}
+	publications {
+		create("maven") {
+			artifact(tasks["bootJar"])
+		}
+	}
+}
