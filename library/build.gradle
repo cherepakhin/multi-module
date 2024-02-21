@@ -1,12 +1,11 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.18'
-	id 'io.spring.dependency-management' version '1.1.4'
+	id 'org.springframework.boot' version '2.7.18' apply false // "apply false" this is LIBRARY! not running
 	id 'java'
 	id 'maven-publish'
 }
 
-group = 'ru.perm.v.multi-module'
-version = '0.0.4'
+group = 'ru.perm.v.multi_module'
+version = '0.0.5'
 
 java {
 	sourceCompatibility = '11'
@@ -33,10 +32,6 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-autoconfigure'
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
@@ -79,7 +74,7 @@ publishing {
 			pom {
 				name = 'Library for Multi Module Project'
 				description = 'Description for Multi Module Project'
-				url = 'https://github.com/cherepakhin/multi-module'
+				url = 'https://github.com/cherepakhin/multi_module'
 				properties = [
 						myProp: "value",
 						"prop.with.dots": "anotherValue"
@@ -98,9 +93,9 @@ publishing {
 					}
 				}
 				scm {
-					connection = 'scm:git:git://github.com/cherepakhin/multi-module.git'
-					developerConnection = 'scm:git:ssh://github.com/cherepakhin/multi-module.git'
-					url = 'https://github.com/cherepakhin/multi-module'
+					connection = 'scm:git:git://github.com/cherepakhin/multi_module.git'
+					developerConnection = 'scm:git:ssh://github.com/cherepakhin/multi_module.git'
+					url = 'https://github.com/cherepakhin/multi_module'
 				}
 			}
 		}
@@ -110,14 +105,14 @@ publishing {
 			url = 'http://v.perm.ru:8082/repository/ru.perm.v/'
 			allowInsecureProtocol = true
 			credentials {
-//				username = 'admin'
-//				password = 'pass'
+				username = 'admin'
+				password = 'pass'
 // export NEXUS_CRED_USR=admin
 // echo $NEXUS_CRED_USR
-                username = System.getenv("NEXUS_CRED_USR")
+//                username = System.getenv("NEXUS_CRED_USR")
 // export NEXUS_CRED_PASS=pass
 // echo $NEXUS_CRED_PASS
-                password = System.getenv("NEXUS_CRED_PASS")
+//                password = System.getenv("NEXUS_CRED_PASS")
 			}
 		}
 	}

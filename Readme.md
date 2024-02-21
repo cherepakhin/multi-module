@@ -64,7 +64,7 @@ publishing {
 			pom {
 				name = 'Library for Multi Module Project'
 				description = 'Description for Multi Module Project'
-				url = 'https://github.com/cherepakhin/multi-module'
+				url = 'https://github.com/cherepakhin/multi_module'
 				properties = [
 						myProp: "value",
 						"prop.with.dots": "anotherValue"
@@ -83,16 +83,34 @@ publishing {
 					}
 				}
 				scm {
-					connection = 'scm:git:git://github.com/cherepakhin/multi-module.git'
-					developerConnection = 'scm:git:ssh://github.com/cherepakhin/multi-module.git'
-					url = 'https://github.com/cherepakhin/multi-module'
+					connection = 'scm:git:git://github.com/cherepakhin/multi_module.git'
+					developerConnection = 'scm:git:ssh://github.com/cherepakhin/multi_module.git'
+					url = 'https://github.com/cherepakhin/multi_module'
 				}
 			}
 		}
 	}
+	repositories {
+		maven {
+			url = 'http://v.perm.ru:8082/repository/ru.perm.v/'
+			allowInsecureProtocol = true
+			credentials {
+				username = 'admin'
+				password = 'pass'
+			}
+		}
+	}
+}
 
 ````
 
 В Nexus в файле library-0.0.4.pom будут указаны эти данные:
 
 ![pom-description.png](doc/pom-description.png)
+
+### Раздельный deploy модулей
+
+````shell
+$ ./gradlew :application:publish
+$ ./gradlew :library:publish
+````
