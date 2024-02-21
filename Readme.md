@@ -104,7 +104,9 @@ publishing {
 
 ````
 
-В Nexus в файле library-0.0.4.pom будут указаны эти данные:
+В Nexus в файле library-0.0.4.pom будут указаны данные артефакта:
+
+[http://192.168.1.20:8082/repository/ru.perm.v/ru/perm/v/multi_module/library/0.0.5/library-0.0.5.pom](http://192.168.1.20:8082/repository/ru.perm.v/ru/perm/v/multi_module/library/0.0.5/library-0.0.5.pom)
 
 ![pom-description.png](doc/pom-description.png)
 
