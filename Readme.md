@@ -1,3 +1,7 @@
+### Проект в Idea
+
+![idea_project.png](doc/idea_project.png)
+
 ### Порядок выполнения операций в модульном проекте gradle.
 
 ````shell
