@@ -115,6 +115,7 @@ publishing {
 ````shell
 $ ./gradlew :application:test
 $ ./gradlew :library:test
+````
 
 ### Раздельный deploy модулей
 
