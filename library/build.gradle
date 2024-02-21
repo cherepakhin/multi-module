@@ -110,8 +110,14 @@ publishing {
 			url = 'http://v.perm.ru:8082/repository/ru.perm.v/'
 			allowInsecureProtocol = true
 			credentials {
-				username = 'admin'
-				password = 'pass'
+//				username = 'admin'
+//				password = 'pass'
+// export NEXUS_CRED_USR=admin
+// echo $NEXUS_CRED_USR
+                username = System.getenv("NEXUS_CRED_USR")
+// export NEXUS_CRED_PASS=pass
+// echo $NEXUS_CRED_PASS
+                password = System.getenv("NEXUS_CRED_PASS")
 			}
 		}
 	}
