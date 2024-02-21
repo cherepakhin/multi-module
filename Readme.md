@@ -110,6 +110,12 @@ publishing {
 
 ![pom-description.png](doc/pom-description.png)
 
+### Раздельный test модулей
+
+````shell
+$ ./gradlew :application:test
+$ ./gradlew :library:test
+
 ### Раздельный deploy модулей
 
 ````shell
