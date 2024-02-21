@@ -116,3 +116,6 @@ publishing {
 $ ./gradlew :application:publish
 $ ./gradlew :library:publish
 ````
+
+Итог в Nexus:
+![nexus.png](doc/nexus.png)
