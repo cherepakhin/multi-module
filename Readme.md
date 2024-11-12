@@ -128,5 +128,12 @@ $ ./gradlew :library:publish
 $ ./gradlew :application:publish
 ````
 
+или просто deploy:
+
+````shell
+$ ./gradlew publish
+````
+
+
 Итог в Nexus:
 ![nexus.png](doc/nexus.png)
