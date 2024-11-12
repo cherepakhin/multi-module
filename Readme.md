@@ -137,3 +137,5 @@ $ ./gradlew publish
 
 Итог в Nexus:
 ![nexus.png](doc/nexus.png)
+
+![nexus1.png](doc/nexus1.png)
