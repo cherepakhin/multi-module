@@ -96,7 +96,7 @@ publishing {
 	}
 	repositories {
 		maven {
-			url = 'http://v.perm.ru:8082/repository/ru.perm.v/'
+			url = 'http://v.perm.ru:8081/repository/ru.perm.v/'
 			allowInsecureProtocol = true
 			credentials {
 				username = 'admin'
@@ -110,7 +110,7 @@ publishing {
 
 В Nexus в файле library-0.0.4.pom будут указаны данные артефакта:
 
-[http://192.168.1.20:8082/repository/ru.perm.v/ru/perm/v/multi_module/library/0.0.5/library-0.0.5.pom](http://192.168.1.20:8082/repository/ru.perm.v/ru/perm/v/multi_module/library/0.0.5/library-0.0.5.pom)
+[http://192.168.1.20:8081/repository/ru.perm.v/ru/perm/v/multi_module/library/0.0.5/library-0.0.5.pom](http://192.168.1.20:8081/repository/ru.perm.v/ru/perm/v/multi_module/library/0.0.5/library-0.0.5.pom)
 
 ![pom-description.png](doc/pom-description.png)
 
@@ -124,8 +124,8 @@ $ ./gradlew :library:test
 ### Раздельный deploy модулей
 
 ````shell
-$ ./gradlew :application:publish
 $ ./gradlew :library:publish
+$ ./gradlew :application:publish
 ````
 
 Итог в Nexus:
